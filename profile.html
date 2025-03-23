@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile - Movie/TV Show Recommendations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -20,21 +21,39 @@
         /* Header Styles */
         header {
             border: 2px solid black;
-            padding: 1rem;
+            padding: 0.75rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 1rem;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            text-align: center;
+            flex: 1;
         }
 
         .logo {
-            width: 100px;
-            height: 50px;
+            width: 80px;
+            height: 40px;
             border: 2px solid black;
+            flex-shrink: 0;
         }
 
         .user-account {
             border: 1px solid black;
             padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: black;
+            flex-shrink: 0;
+        }
+
+        .user-account i {
+            font-size: 1.2rem;
         }
 
         /* Navigation Styles */
@@ -159,6 +178,19 @@
         }
 
         @media (max-width: 768px) {
+            header {
+                padding: 0.5rem;
+            }
+
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .logo {
+                width: 60px;
+                height: 30px;
+            }
+
             .hamburger-menu {
                 display: block;
             }
@@ -172,13 +204,46 @@
                 display: flex;
             }
 
+            .profile-section {
+                padding: 1rem;
+            }
+
             .profile-header {
                 flex-direction: column;
                 text-align: center;
+                gap: 1rem;
+            }
+
+            .profile-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .watchlist-grid,
+            .recommendations-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .watchlist-item,
+            .recommendation-item {
+                padding: 0.5rem;
+            }
+
+            .item-poster {
+                width: 120px;
+                height: 180px;
             }
         }
     </style>
@@ -187,7 +252,7 @@
     <header>
         <div class="logo">Logo</div>
         <h1>Movie/TV Show Recommendations</h1>
-        <div class="user-account"><a href="login.html">Login/Register</a></div>
+        <a href="login.html" class="user-account"><i class="fas fa-user"></i><span>Login/Register</span></a>
     </header>
 
     <nav>
