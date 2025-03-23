@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register - Movie/TV Show Recommendations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            color: black;
+        }
+
+        /* Header Styles */
+        header {
+            border: 2px solid black;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 100px;
+            height: 50px;
+            border: 2px solid black;
+        }
+
+        .user-account {
+            border: 1px solid black;
+            padding: 0.5rem;
+        }
+
+        /* Navigation Styles */
+        nav {
+            border: 2px solid black;
+            padding: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 2rem;
+            border: 2px solid black;
+            margin: 1rem 0;
+            min-height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Form Styles */
+        .auth-container {
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid black;
+            padding: 2rem;
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid black;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 0.5rem;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid black;
+            border-bottom: none;
+        }
+
+        .auth-tab.active {
+            background: #f0f0f0;
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid black;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid black;
+            background: white;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .form-group button:hover {
+            background: #f0f0f0;
+        }
+
+        /* Footer Styles */
+        footer {
+            border: 2px solid black;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        /* Mobile Styles */
+        .hamburger-menu {
+            display: none;
+            border: 2px solid black;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav.active ul {
+                display: flex;
+            }
+
+            .auth-container {
+                margin: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Logo</div>
+        <h1>Movie/TV Show Recommendations</h1>
+        <div class="user-account"><a href="login.html">Login/Register</a></div>
+    </header>
+
+    <nav>
+        <div class="hamburger-menu">☰</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="movie.html">Movies/TV Shows</a></li>
+            <li><a href="ranking.html">Ranking View</a></li>
+            <li><a href="streaming.html">Streaming Services</a></li>
+            <li><a href="profile.html">My Recommendations</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="auth-container">
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-form="login">Login</div>
+                <div class="auth-tab" data-form="register">Register</div>
+            </div>
+
+            <form class="auth-form login-form active">
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+
+            <form class="auth-form register-form">
+                <div class="form-group">
+                    <label for="register-username">Username</label>
+                    <input type="text" id="register-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <input type="password" id="register-confirm-password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Register</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <h4>Contact</h4>
+                <p>Email: contact@movies.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="legal">
+                <h4>Legal</h4>
+                <p>Terms of Service</p>
+                <p>Privacy Policy</p>
+            </div>
+            <div class="social">
+                <h4>Social Media</h4>
+                <p>Facebook</p>
+                <p>Twitter</p>
+                <p>Instagram</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        const hamburger = document.querySelector('.hamburger-menu');
+        const nav = document.querySelector('nav');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Toggle auth forms
+        const authTabs = document.querySelectorAll('.auth-tab');
+        const authForms = document.querySelectorAll('.auth-form');
+
+        authTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update tabs
+                authTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // Update forms
+                const formType = tab.dataset.form;
+                authForms.forEach(form => {
+                    form.classList.remove('active');
+                    if (form.classList.contains(`${formType}-form`)) {
+                        form.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Form submission handling
+        const loginForm = document.querySelector('.login-form');
+        const registerForm = document.querySelector('.register-form');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add login form handling logic here
+            console.log('Login form submitted');
+        });
+
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add registration form handling logic here
+            console.log('Register form submitted');
+        });
+    </script>
+</body>
+</html>

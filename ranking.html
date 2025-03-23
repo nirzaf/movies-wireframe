@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking View - Movie/TV Show Recommendations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            color: black;
+        }
+
+        /* Header Styles */
+        header {
+            border: 2px solid black;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 100px;
+            height: 50px;
+            border: 2px solid black;
+        }
+
+        .user-account {
+            border: 1px solid black;
+            padding: 0.5rem;
+        }
+
+        /* Navigation Styles */
+        nav {
+            border: 2px solid black;
+            padding: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 2rem;
+            border: 2px solid black;
+            margin: 1rem 0;
+        }
+
+        /* Table Styles */
+        .ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .ranking-table th,
+        .ranking-table td {
+            border: 1px solid black;
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        .ranking-table th {
+            background: white;
+            cursor: pointer;
+        }
+
+        .ranking-table th:hover {
+            background: #f0f0f0;
+        }
+
+        .sort-icon {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: 0.5rem;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+        }
+
+        .sort-asc .sort-icon {
+            border-bottom: 5px solid black;
+        }
+
+        .sort-desc .sort-icon {
+            border-top: 5px solid black;
+        }
+
+        /* Footer Styles */
+        footer {
+            border: 2px solid black;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        /* Mobile Styles */
+        .hamburger-menu {
+            display: none;
+            border: 2px solid black;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav.active ul {
+                display: flex;
+            }
+
+            .ranking-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Logo</div>
+        <h1>Movie/TV Show Recommendations</h1>
+        <div class="user-account"><a href="login.html">Login/Register</a></div>
+    </header>
+
+    <nav>
+        <div class="hamburger-menu">☰</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="movie.html">Movies/TV Shows</a></li>
+            <li><a href="ranking.html">Ranking View</a></li>
+            <li><a href="streaming.html">Streaming Services</a></li>
+            <li><a href="profile.html">My Recommendations</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Movie/TV Show Rankings</h2>
+        <table class="ranking-table">
+            <thead>
+                <tr>
+                    <th data-sort="title">Title <span class="sort-icon"></span></th>
+                    <th data-sort="genre">Genre <span class="sort-icon"></span></th>
+                    <th data-sort="rating">Rating <span class="sort-icon"></span></th>
+                    <th data-sort="release">Release Date <span class="sort-icon"></span></th>
+                    <th data-sort="popularity">Popularity Score <span class="sort-icon"></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Movie Title 1</td>
+                    <td>Action</td>
+                    <td>4.5</td>
+                    <td>2023-01-15</td>
+                    <td>95</td>
+                </tr>
+                <tr>
+                    <td>Movie Title 2</td>
+                    <td>Drama</td>
+                    <td>4.8</td>
+                    <td>2023-02-20</td>
+                    <td>88</td>
+                </tr>
+                <tr>
+                    <td>Movie Title 3</td>
+                    <td>Comedy</td>
+                    <td>4.2</td>
+                    <td>2023-03-10</td>
+                    <td>92</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <h4>Contact</h4>
+                <p>Email: contact@movies.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="legal">
+                <h4>Legal</h4>
+                <p>Terms of Service</p>
+                <p>Privacy Policy</p>
+            </div>
+            <div class="social">
+                <h4>Social Media</h4>
+                <p>Facebook</p>
+                <p>Twitter</p>
+                <p>Instagram</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        const hamburger = document.querySelector('.hamburger-menu');
+        const nav = document.querySelector('nav');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Table sorting functionality
+        const table = document.querySelector('.ranking-table');
+        const headers = table.querySelectorAll('th');
+        let currentSort = {
+            column: null,
+            direction: 'asc'
+        };
+
+        headers.forEach(header => {
+            header.addEventListener('click', () => {
+                const column = header.dataset.sort;
+                const direction = currentSort.column === column && currentSort.direction === 'asc' ? 'desc' : 'asc';
+
+                // Reset all headers
+                headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+                
+                // Update current header
+                header.classList.add(`sort-${direction}`);
+
+                // Sort the table
+                const tbody = table.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+
+                rows.sort((a, b) => {
+                    const aValue = a.children[Array.from(headers).indexOf(header)].textContent;
+                    const bValue = b.children[Array.from(headers).indexOf(header)].textContent;
+
+                    if (column === 'rating' || column === 'popularity') {
+                        return direction === 'asc' ? 
+                            parseFloat(aValue) - parseFloat(bValue) :
+                            parseFloat(bValue) - parseFloat(aValue);
+                    }
+
+                    return direction === 'asc' ?
+                        aValue.localeCompare(bValue) :
+                        bValue.localeCompare(aValue);
+                });
+
+                // Update the table
+                tbody.innerHTML = '';
+                rows.forEach(row => tbody.appendChild(row));
+
+                // Update sort state
+                currentSort = { column, direction };
+            });
+        });
+    </script>
+</body>
+</html>

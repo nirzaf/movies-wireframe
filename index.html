@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie/TV Show Recommendations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            color: black;
+        }
+
+        /* Header Styles */
+        header {
+            border: 2px solid black;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 100px;
+            height: 50px;
+            border: 2px solid black;
+        }
+
+        .user-account {
+            border: 1px solid black;
+            padding: 0.5rem;
+        }
+
+        /* Navigation Styles */
+        nav {
+            border: 2px solid black;
+            padding: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* Main Content Styles */
+        main {
+            min-height: 70vh;
+            padding: 2rem;
+            border: 2px solid black;
+            margin: 1rem 0;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            border: 2px solid black;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Movie Cards */
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .movie-card {
+            border: 2px solid black;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .movie-poster {
+            width: 200px;
+            height: 300px;
+            border: 2px solid black;
+            margin: 0 auto 1rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            border: 2px solid black;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        /* Mobile Styles */
+        .hamburger-menu {
+            display: none;
+            border: 2px solid black;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav.active ul {
+                display: flex;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Logo</div>
+        <h1>Movie/TV Show Recommendations</h1>
+        <div class="user-account"><a href="login.html">Login/Register</a></div>
+    </header>
+
+    <nav>
+        <div class="hamburger-menu">☰</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="movie.html">Movies/TV Shows</a></li>
+            <li><a href="ranking.html">Ranking View</a></li>
+            <li><a href="streaming.html">Streaming Services</a></li>
+            <li><a href="profile.html">My Recommendations</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="search-bar">
+            <input type="text" placeholder="Search movies and TV shows...">
+            <button>Search</button>
+        </div>
+
+        <div class="movie-grid">
+            <div class="movie-card">
+                <div class="movie-poster"></div>
+                <h3>Movie Title 1</h3>
+                <p>Brief description</p>
+            </div>
+            <div class="movie-card">
+                <div class="movie-poster"></div>
+                <h3>Movie Title 2</h3>
+                <p>Brief description</p>
+            </div>
+            <div class="movie-card">
+                <div class="movie-poster"></div>
+                <h3>Movie Title 3</h3>
+                <p>Brief description</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <h4>Contact</h4>
+                <p>Email: contact@movies.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="legal">
+                <h4>Legal</h4>
+                <p>Terms of Service</p>
+                <p>Privacy Policy</p>
+            </div>
+            <div class="social">
+                <h4>Social Media</h4>
+                <p>Facebook</p>
+                <p>Twitter</p>
+                <p>Instagram</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        const hamburger = document.querySelector('.hamburger-menu');
+        const nav = document.querySelector('nav');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

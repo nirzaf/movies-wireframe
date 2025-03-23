@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming Services - Movie/TV Show Recommendations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            color: black;
+        }
+
+        /* Header Styles */
+        header {
+            border: 2px solid black;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 100px;
+            height: 50px;
+            border: 2px solid black;
+        }
+
+        .user-account {
+            border: 1px solid black;
+            padding: 0.5rem;
+        }
+
+        /* Navigation Styles */
+        nav {
+            border: 2px solid black;
+            padding: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 2rem;
+            border: 2px solid black;
+            margin: 1rem 0;
+        }
+
+        /* Streaming Services Grid */
+        .streaming-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            border: 2px solid black;
+            padding: 1.5rem;
+        }
+
+        .service-logo {
+            width: 200px;
+            height: 100px;
+            border: 2px solid black;
+            margin: 0 auto 1rem;
+        }
+
+        .plan-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .plan {
+            border: 1px solid black;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .plan-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .features-list li {
+            border: 1px solid black;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            border: 2px solid black;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        /* Mobile Styles */
+        .hamburger-menu {
+            display: none;
+            border: 2px solid black;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav.active ul {
+                display: flex;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Logo</div>
+        <h1>Movie/TV Show Recommendations</h1>
+        <div class="user-account"><a href="login.html">Login/Register</a></div>
+    </header>
+
+    <nav>
+        <div class="hamburger-menu">☰</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="movie.html">Movies/TV Shows</a></li>
+            <li><a href="ranking.html">Ranking View</a></li>
+            <li><a href="streaming.html">Streaming Services</a></li>
+            <li><a href="profile.html">My Recommendations</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Streaming Services Overview</h2>
+        <div class="streaming-services">
+            <div class="service-card">
+                <div class="service-logo"></div>
+                <h3>Streaming Service 1</h3>
+                <ul class="plan-list">
+                    <li class="plan">
+                        <div class="plan-header">
+                            <h4>Basic Plan</h4>
+                            <span>$8.99/month</span>
+                        </div>
+                        <ul class="features-list">
+                            <li>HD Streaming</li>
+                            <li>1 Device at a time</li>
+                            <li>Limited Library</li>
+                        </ul>
+                    </li>
+                    <li class="plan">
+                        <div class="plan-header">
+                            <h4>Standard Plan</h4>
+                            <span>$13.99/month</span>
+                        </div>
+                        <ul class="features-list">
+                            <li>Full HD Streaming</li>
+                            <li>2 Devices at a time</li>
+                            <li>Full Library Access</li>
+                        </ul>
+                    </li>
+                    <li class="plan">
+                        <div class="plan-header">
+                            <h4>Premium Plan</h4>
+                            <span>$17.99/month</span>
+                        </div>
+                        <ul class="features-list">
+                            <li>4K Ultra HD</li>
+                            <li>4 Devices at a time</li>
+                            <li>Full Library + Exclusives</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-logo"></div>
+                <h3>Streaming Service 2</h3>
+                <ul class="plan-list">
+                    <li class="plan">
+                        <div class="plan-header">
+                            <h4>Basic Plan</h4>
+                            <span>$7.99/month</span>
+                        </div>
+                        <ul class="features-list">
+                            <li>HD Streaming</li>
+                            <li>1 Device at a time</li>
+                            <li>Ad-supported</li>
+                        </ul>
+                    </li>
+                    <li class="plan">
+                        <div class="plan-header">
+                            <h4>Premium Plan</h4>
+                            <span>$14.99/month</span>
+                        </div>
+                        <ul class="features-list">
+                            <li>4K Ultra HD</li>
+                            <li>3 Devices at a time</li>
+                            <li>Ad-free Experience</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <h4>Contact</h4>
+                <p>Email: contact@movies.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="legal">
+                <h4>Legal</h4>
+                <p>Terms of Service</p>
+                <p>Privacy Policy</p>
+            </div>
+            <div class="social">
+                <h4>Social Media</h4>
+                <p>Facebook</p>
+                <p>Twitter</p>
+                <p>Instagram</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        const hamburger = document.querySelector('.hamburger-menu');
+        const nav = document.querySelector('nav');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details - Movie/TV Show Recommendations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            color: black;
+        }
+
+        /* Header Styles */
+        header {
+            border: 2px solid black;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 100px;
+            height: 50px;
+            border: 2px solid black;
+        }
+
+        .user-account {
+            border: 1px solid black;
+            padding: 0.5rem;
+        }
+
+        /* Navigation Styles */
+        nav {
+            border: 2px solid black;
+            padding: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 2rem;
+            border: 2px solid black;
+            margin: 1rem 0;
+        }
+
+        /* Movie Details */
+        .movie-details {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .movie-poster {
+            width: 300px;
+            height: 450px;
+            border: 2px solid black;
+        }
+
+        .movie-info h1 {
+            margin-bottom: 1rem;
+        }
+
+        .cast-list {
+            margin: 1rem 0;
+            border: 1px solid black;
+            padding: 1rem;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            border: 2px solid black;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .review-form {
+            border: 1px solid black;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .review-form textarea {
+            width: 100%;
+            margin: 0.5rem 0;
+        }
+
+        .user-review {
+            border: 1px solid black;
+            padding: 1rem;
+            margin: 0.5rem 0;
+        }
+
+        /* External Reviews */
+        .external-reviews {
+            border: 2px solid black;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .rating-box {
+            border: 1px solid black;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Recommendations */
+        .recommendations {
+            border: 2px solid black;
+            padding: 1rem;
+        }
+
+        .recommendation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .recommendation-card {
+            border: 1px solid black;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        .recommendation-poster {
+            width: 150px;
+            height: 225px;
+            border: 1px solid black;
+            margin: 0 auto 0.5rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            border: 2px solid black;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        /* Mobile Styles */
+        .hamburger-menu {
+            display: none;
+            border: 2px solid black;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav.active ul {
+                display: flex;
+            }
+
+            .movie-details {
+                grid-template-columns: 1fr;
+            }
+
+            .movie-poster {
+                margin: 0 auto;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Logo</div>
+        <h1>Movie/TV Show Recommendations</h1>
+        <div class="user-account"><a href="login.html">Login/Register</a></div>
+    </header>
+
+    <nav>
+        <div class="hamburger-menu">☰</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="movie.html">Movies/TV Shows</a></li>
+            <li><a href="ranking.html">Ranking View</a></li>
+            <li><a href="streaming.html">Streaming Services</a></li>
+            <li><a href="profile.html">My Recommendations</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="movie-details">
+            <div class="movie-poster"></div>
+            <div class="movie-info">
+                <h1>Movie Title</h1>
+                <p>Release Date: YYYY-MM-DD</p>
+                <p>Genre: Action, Adventure</p>
+                <p>Duration: 2h 30min</p>
+                <div class="cast-list">
+                    <h2>Cast</h2>
+                    <ul>
+                        <li>Actor 1 - Character 1</li>
+                        <li>Actor 2 - Character 2</li>
+                        <li>Actor 3 - Character 3</li>
+                    </ul>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+
+        <section class="reviews-section">
+            <h2>User Reviews</h2>
+            <div class="review-form">
+                <h3>Write a Review</h3>
+                <form>
+                    <div>
+                        <label for="rating">Rating:</label>
+                        <select id="rating">
+                            <option>5 Stars</option>
+                            <option>4 Stars</option>
+                            <option>3 Stars</option>
+                            <option>2 Stars</option>
+                            <option>1 Star</option>
+                        </select>
+                    </div>
+                    <textarea placeholder="Write your review here..."></textarea>
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
+            <div class="user-review">
+                <h4>User Name</h4>
+                <p>Rating: ★★★★☆</p>
+                <p>Great movie! Highly recommended.</p>
+            </div>
+            <div class="user-review">
+                <h4>Another User</h4>
+                <p>Rating: ★★★★★</p>
+                <p>One of the best movies I've seen this year!</p>
+            </div>
+        </section>
+
+        <section class="external-reviews">
+            <h2>External Reviews</h2>
+            <div class="rating-box">
+                <span>IMDb</span>
+                <span>8.5/10</span>
+            </div>
+            <div class="rating-box">
+                <span>Rotten Tomatoes</span>
+                <span>92%</span>
+            </div>
+            <div class="rating-box">
+                <span>Metacritic</span>
+                <span>85/100</span>
+            </div>
+        </section>
+
+        <section class="recommendations">
+            <h2>Similar Movies You Might Like</h2>
+            <div class="recommendation-grid">
+                <div class="recommendation-card">
+                    <div class="recommendation-poster"></div>
+                    <h3>Similar Movie 1</h3>
+                </div>
+                <div class="recommendation-card">
+                    <div class="recommendation-poster"></div>
+                    <h3>Similar Movie 2</h3>
+                </div>
+                <div class="recommendation-card">
+                    <div class="recommendation-poster"></div>
+                    <h3>Similar Movie 3</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <h4>Contact</h4>
+                <p>Email: contact@movies.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="legal">
+                <h4>Legal</h4>
+                <p>Terms of Service</p>
+                <p>Privacy Policy</p>
+            </div>
+            <div class="social">
+                <h4>Social Media</h4>
+                <p>Facebook</p>
+                <p>Twitter</p>
+                <p>Instagram</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        const hamburger = document.querySelector('.hamburger-menu');
+        const nav = document.querySelector('nav');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
