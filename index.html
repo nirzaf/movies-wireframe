@@ -13,36 +13,42 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
             background: white;
             color: black;
+            line-height: 1.6;
         }
 
         /* Header Styles */
         header {
-            border: 2px solid black;
+            border: 3px solid black;
+            border-radius: 8px;
             padding: 0.75rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 1rem;
-        }
-
-        header h1 {
-            font-size: 1.5rem;
-            text-align: center;
-            flex: 1;
+            margin-bottom: 1rem;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
         }
 
         .logo {
             width: 80px;
             height: 40px;
             border: 2px solid black;
+            border-radius: 6px;
             flex-shrink: 0;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transform: rotate(-2deg);
         }
 
         .user-account {
-            border: 1px solid black;
+            border: 2px solid black;
+            border-radius: 6px;
             padding: 0.5rem;
             display: flex;
             align-items: center;
@@ -50,16 +56,22 @@
             text-decoration: none;
             color: black;
             flex-shrink: 0;
+            background: #f0f0f0;
+            transition: transform 0.2s ease;
         }
 
-        .user-account i {
-            font-size: 1.2rem;
+        .user-account:hover {
+            transform: translateY(-2px);
         }
 
         /* Navigation Styles */
         nav {
             border: 2px solid black;
+            border-radius: 8px;
             padding: 1rem;
+            background: #f0f0f0;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+            margin-bottom: 1rem;
         }
 
         nav ul {
@@ -71,49 +83,54 @@
         nav a {
             text-decoration: none;
             color: black;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
         }
 
-        /* Main Content Styles */
-        main {
-            min-height: 70vh;
-            padding: 2rem;
-            border: 2px solid black;
-            margin: 1rem 0;
+        nav a:hover {
+            background: #e0e0e0;
         }
 
-        /* Search Bar */
-        .search-bar {
-            border: 2px solid black;
-            padding: 1rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        /* Movie Cards */
+        /* Movie Grid Styles */
         .movie-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 2rem;
+            padding: 2rem;
         }
 
         .movie-card {
             border: 2px solid black;
+            border-radius: 6px;
             padding: 1rem;
-            text-align: center;
+            background: #fff;
+            box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-4px);
         }
 
         .movie-poster {
-            width: 200px;
-            height: 300px;
             border: 2px solid black;
-            margin: 0 auto 1rem;
+            border-radius: 6px;
+            width: 100%;
+            aspect-ratio: 2/3;
+            object-fit: cover;
+            background: #f0f0f0;
+            box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
         }
 
         /* Footer Styles */
         footer {
-            border: 2px solid black;
+            border: 3px solid black;
+            border-radius: 8px;
             padding: 1rem;
             text-align: center;
+            background: #f0f0f0;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
         }
 
         .footer-content {
@@ -190,18 +207,43 @@
         <div class="movie-grid">
             <div class="movie-card">
                 <div class="movie-poster"></div>
-                <h3>Movie Title 1</h3>
-                <p>Brief description</p>
+                <h3>The Dark Knight</h3>
+                <p>A thrilling superhero drama</p>
             </div>
             <div class="movie-card">
                 <div class="movie-poster"></div>
-                <h3>Movie Title 2</h3>
-                <p>Brief description</p>
+                <h3>Inception</h3>
+                <p>Mind-bending sci-fi adventure</p>
             </div>
             <div class="movie-card">
                 <div class="movie-poster"></div>
-                <h3>Movie Title 3</h3>
-                <p>Brief description</p>
+                <h3>Pulp Fiction</h3>
+                <p>Classic crime anthology</p>
+            </div>
+            <div class="movie-card">
+                <div class="movie-poster"></div>
+                <h3>The Shawshank Redemption</h3>
+                <p>Powerful prison drama</p>
+            </div>
+            <div class="movie-card">
+                <div class="movie-poster"></div>
+                <h3>Spirited Away</h3>
+                <p>Magical animated masterpiece</p>
+            </div>
+            <div class="movie-card">
+                <div class="movie-poster"></div>
+                <h3>The Matrix</h3>
+                <p>Revolutionary sci-fi action</p>
+            </div>
+            <div class="movie-card">
+                <div class="movie-poster"></div>
+                <h3>Jurassic Park</h3>
+                <p>Dinosaur adventure classic</p>
+            </div>
+            <div class="movie-card">
+                <div class="movie-poster"></div>
+                <h3>The Grand Budapest Hotel</h3>
+                <p>Quirky comedy adventure</p>
             </div>
         </div>
     </main>
